@@ -47,7 +47,7 @@ class Matrix:
 		return self.__data
 
 	# TODO: Accès à un élément en lecture
-	def TODO(TODO):
+	def __getitem__(self, indexes):
 		"""
 		Indexation rangée-major
 
@@ -57,10 +57,12 @@ class Matrix:
 			raise IndexError()
 		if indexes[0] >= self.height or indexes[1] >= self.width:
 			raise IndexError()
+
+		return self.__data[indexes[0] * self.width + indexes[1]]
 		# TODO: Retourner la valeur
 
 	# TODO: Affectation à un élément
-	def TODO(TODO):
+	def __setitem__(self, indexes, value):
 		"""
 		Indexation rangée-major
 
@@ -70,6 +72,8 @@ class Matrix:
 			raise IndexError()
 		if indexes[0] >= self.height or indexes[1] >= self.width:
 			raise IndexError()
+
+		self.__data[indexes[0] * self.width + indexes[1]] = value
 		# TODO: L'affectation
 
 	def __len__(self):
